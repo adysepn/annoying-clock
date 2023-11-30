@@ -5,7 +5,8 @@ import 'package:flutter_alarm_clock/app/data/models/menu_info.dart';
 import 'package:flutter_alarm_clock/app/data/theme_data.dart';
 import 'package:flutter_alarm_clock/app/modules/views/alarm_page.dart';
 import 'package:flutter_alarm_clock/app/modules/views/clock_page.dart';
-import 'package:flutter_alarm_clock/app/modules/views/timer_page.dart';
+import 'package:flutter_alarm_clock/app/modules/views/count_up_timer_page.dart';
+import 'package:flutter_alarm_clock/app/modules/views/count_down_timer_page.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -38,7 +39,9 @@ class _HomePageState extends State<HomePage> {
                 else if (value.menuType == MenuType.alarm)
                   return ExampleAlarmHomeScreen();
                 else if (value.menuType == MenuType.timer)
-                  return MyApp();
+                  return CountDownTimerPage();
+                else if (value.menuType == MenuType.stopwatch)
+                  return CountUpTimerPage();
                 else
                   return Container(
                     child: RichText(

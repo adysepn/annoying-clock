@@ -32,8 +32,6 @@ class _State extends State<CountDownTimerPage> {
     },
   );
 
-  final _scrollController = ScrollController();
-
   @override
   void initState() {
     super.initState();
@@ -60,7 +58,7 @@ class _State extends State<CountDownTimerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Count Down Timer'),
+        title: const Text('Timer'),
       ),
       body: Scrollbar(
         child: SingleChildScrollView(
@@ -79,8 +77,8 @@ class _State extends State<CountDownTimerPage> {
                   initialData: _stopWatchTimer.rawTime.value,
                   builder: (context, snap) {
                     final value = snap.data!;
-                    final displayTime =
-                        StopWatchTimer.getDisplayTime(value, hours: _isHours);
+                    final displayTime = StopWatchTimer.getDisplayTime(value,
+                        hours: _isHours, milliSecond: false);
                     return Column(
                       children: <Widget>[
                         Padding(
@@ -95,12 +93,8 @@ class _State extends State<CountDownTimerPage> {
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8),
-                          child: Text(
-                            value.toString(),
-                            style: const TextStyle(
-                                fontSize: 16,
-                                fontFamily: 'Helvetica',
-                                fontWeight: FontWeight.w400),
+                          child: SizedBox(
+                            height: 15,
                           ),
                         ),
                       ],
@@ -200,48 +194,6 @@ class _State extends State<CountDownTimerPage> {
                   padding: const EdgeInsets.symmetric(vertical: 8),
                   child: SizedBox(
                     height: 100,
-                    child: StreamBuilder<List<StopWatchRecord>>(
-                      stream: _stopWatchTimer.records,
-                      initialData: _stopWatchTimer.records.value,
-                      builder: (context, snap) {
-                        final value = snap.data!;
-                        if (value.isEmpty) {
-                          return const SizedBox();
-                        }
-                        Future.delayed(const Duration(milliseconds: 100), () {
-                          _scrollController.animateTo(
-                              _scrollController.position.maxScrollExtent,
-                              duration: const Duration(milliseconds: 200),
-                              curve: Curves.easeOut);
-                        });
-                        print('Listen records. $value');
-                        return ListView.builder(
-                          controller: _scrollController,
-                          scrollDirection: Axis.vertical,
-                          itemBuilder: (BuildContext context, int index) {
-                            final data = value[index];
-                            return Column(
-                              children: <Widget>[
-                                Padding(
-                                  padding: const EdgeInsets.all(8),
-                                  child: Text(
-                                    '${index + 1} ${data.displayTime}',
-                                    style: const TextStyle(
-                                        fontSize: 17,
-                                        fontFamily: 'Helvetica',
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                                const Divider(
-                                  height: 1,
-                                )
-                              ],
-                            );
-                          },
-                          itemCount: value.length,
-                        );
-                      },
-                    ),
                   ),
                 ),
 
@@ -293,27 +245,6 @@ class _State extends State<CountDownTimerPage> {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 4),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Flexible(
-                        child: Padding(
-                          padding: const EdgeInsets.all(0).copyWith(right: 8),
-                          child: RoundedButton(
-                            color: Colors.deepPurpleAccent,
-                            onTap: _stopWatchTimer.onAddLap,
-                            child: const Text(
-                              'Lap',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -338,7 +269,7 @@ class _State extends State<CountDownTimerPage> {
                         child: RoundedButton(
                           color: Colors.pinkAccent,
                           onTap: () {
-                            _stopWatchTimer.setPresetMinuteTime(59);
+                            _stopWatchTimer.setPresetMinuteTime(1);
                           },
                           child: const Text(
                             'Set Minute',
