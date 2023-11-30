@@ -1,22 +1,18 @@
 import 'dart:async';
-
 import 'package:alarm/alarm.dart';
 import 'edit_alarm.dart';
 import 'ring.dart';
-import 'shortcut_button.dart';
 import 'widgets/tile.dart';
 import 'package:flutter/material.dart';
 
 class ExampleAlarmHomeScreen extends StatefulWidget {
   const ExampleAlarmHomeScreen({Key? key}) : super(key: key);
-
   @override
   State<ExampleAlarmHomeScreen> createState() => _ExampleAlarmHomeScreenState();
 }
 
 class _ExampleAlarmHomeScreenState extends State<ExampleAlarmHomeScreen> {
   late List<AlarmSettings> alarms;
-
   static StreamSubscription<AlarmSettings>? subscription;
 
   @override
@@ -101,9 +97,8 @@ class _ExampleAlarmHomeScreenState extends State<ExampleAlarmHomeScreen> {
       floatingActionButton: Padding(
         padding: const EdgeInsets.all(10),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ExampleAlarmHomeShortcutButton(refreshAlarms: loadAlarms),
             FloatingActionButton(
               onPressed: () => navigateToAlarmScreen(null),
               child: const Icon(Icons.alarm_add_rounded, size: 33),
