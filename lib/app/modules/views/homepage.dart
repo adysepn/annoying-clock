@@ -48,7 +48,6 @@ class _HomePageState extends State<HomePage> {
                       text: TextSpan(
                         style: TextStyle(fontSize: 20),
                         children: <TextSpan>[
-                          TextSpan(text: 'Upcoming Tutorial\n'),
                           TextSpan(
                             text: value.title,
                             style: TextStyle(fontSize: 48),
