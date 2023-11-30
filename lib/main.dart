@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:provider/provider.dart';
+import 'package:alarm/alarm.dart';
+import 'package:flutter/services.dart';
 import 'app/data/enums.dart';
 import 'app/data/models/menu_info.dart';
 import 'app/modules/views/homepage.dart';
@@ -10,6 +12,9 @@ final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
+  await Alarm.init(showDebugLogs: true);
 
   var initializationSettingsAndroid =
       AndroidInitializationSettings('codex_logo');

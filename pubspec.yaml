@@ -3,7 +3,7 @@ version: 1.0.0+1
 publish_to: none
 description: A new Flutter project.
 environment:
-  sdk: ">=2.16.2 <3.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   cupertino_icons: ^1.0.2
@@ -16,6 +16,7 @@ dependencies:
   dotted_border: ^2.0.0+2
   provider: ^6.0.3
   intl: ^0.18.1
+  alarm: ^3.0.0-dev.4
 
 dev_dependencies:
   flutter_lints: ^3.0.1
@@ -25,7 +26,16 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/
+    - assets/mozart.mp3
+    - assets/nokia.mp3
+    - assets/one_piece.mp3
+    - assets/star_wars.mp3
+    - assets/marimba.mp3
+    - assets/add_alarm.png
+    - assets/alarm_icon.png
+    - assets/clock_icon.png
+    - assets/timer_icon.png
+    - assets/stopwatch_icon.png
   fonts:
     - family: avenir
       fonts:
