@@ -67,7 +67,14 @@ class _ExampleAlarmHomeScreenState extends State<ExampleAlarmHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Alarm')),
+       backgroundColor: Color.fromARGB(255, 4, 80, 91),
+      appBar: AppBar(title: const Text('Alarm',  
+      style: TextStyle(
+            color: Colors.white, // Set text color to white
+            fontWeight: FontWeight.bold, // Set text to bold
+            ),
+          ), 
+          backgroundColor: Color.fromARGB(255, 4, 80, 91)),
       body: SafeArea(
         child: alarms.isNotEmpty
             ? ListView.separated(
@@ -87,10 +94,13 @@ class _ExampleAlarmHomeScreenState extends State<ExampleAlarmHomeScreen> {
                   );
                 },
               )
-            : Center(
+                      : Center(
                 child: Text(
                   "No alarms set",
-                  style: Theme.of(context).textTheme.titleMedium,
+                  style: TextStyle(
+                    color: Colors.white, // Set text color to white
+                    fontSize: 16, // Set font size
+                  ),
                 ),
               ),
       ),

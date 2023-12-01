@@ -58,8 +58,13 @@ class _State extends State<CountDownTimerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Timer'),
+         backgroundColor: Color.fromARGB(255, 4, 80, 91),
+        title: const Text('Timer', style: TextStyle(
+            color: Colors.white, // Set text color to white
+            fontWeight: FontWeight.bold, // Set text to bold
+          ),),
       ),
+       backgroundColor: Color.fromARGB(255, 4, 80, 91),
       body: Scrollbar(
         child: SingleChildScrollView(
           child: Padding(
@@ -87,6 +92,7 @@ class _State extends State<CountDownTimerPage> {
                             displayTime,
                             style: const TextStyle(
                                 fontSize: 40,
+                                 color: Colors.white,
                                 fontFamily: 'Helvetica',
                                 fontWeight: FontWeight.bold),
                           ),
@@ -123,6 +129,7 @@ class _State extends State<CountDownTimerPage> {
                                     'minute',
                                     style: TextStyle(
                                       fontSize: 17,
+                                       color: Colors.white,
                                       fontFamily: 'Helvetica',
                                     ),
                                   ),
@@ -134,6 +141,7 @@ class _State extends State<CountDownTimerPage> {
                                     value.toString(),
                                     style: const TextStyle(
                                         fontSize: 30,
+                                         color: Colors.white,
                                         fontFamily: 'Helvetica',
                                         fontWeight: FontWeight.bold),
                                   ),
@@ -166,6 +174,7 @@ class _State extends State<CountDownTimerPage> {
                                     'second',
                                     style: TextStyle(
                                       fontSize: 17,
+                                       color: Colors.white,
                                       fontFamily: 'Helvetica',
                                     ),
                                   ),
@@ -177,6 +186,7 @@ class _State extends State<CountDownTimerPage> {
                                     value.toString(),
                                     style: const TextStyle(
                                       fontSize: 30,
+                                       color: Colors.white,
                                       fontFamily: 'Helvetica',
                                       fontWeight: FontWeight.bold,
                                     ),

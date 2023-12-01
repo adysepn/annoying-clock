@@ -60,8 +60,14 @@ class _State extends State<CountUpTimerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Stopwatch'),
+        backgroundColor: Color.fromARGB(255, 4, 80, 91),
+        title: const Text('Stopwatch', 
+        style: TextStyle(
+        color: Colors.white, // Set text color to white
+            fontWeight: FontWeight.bold, // Set text to bold
+          ),),
       ),
+      backgroundColor: Color.fromARGB(255, 4, 80, 91),
       body: Scrollbar(
         child: SingleChildScrollView(
           child: Padding(
@@ -89,6 +95,7 @@ class _State extends State<CountUpTimerPage> {
                             displayTime,
                             style: const TextStyle(
                                 fontSize: 40,
+                                 color: Colors.white, 
                                 fontFamily: 'Helvetica',
                                 fontWeight: FontWeight.bold),
                           ),
@@ -125,6 +132,7 @@ class _State extends State<CountUpTimerPage> {
                                     'minute',
                                     style: TextStyle(
                                       fontSize: 17,
+                                      color: Colors.white,
                                       fontFamily: 'Helvetica',
                                     ),
                                   ),
@@ -136,6 +144,7 @@ class _State extends State<CountUpTimerPage> {
                                     value.toString(),
                                     style: const TextStyle(
                                         fontSize: 30,
+                                        color: Colors.white,
                                         fontFamily: 'Helvetica',
                                         fontWeight: FontWeight.bold),
                                   ),
@@ -168,6 +177,7 @@ class _State extends State<CountUpTimerPage> {
                                     'second',
                                     style: TextStyle(
                                       fontSize: 17,
+                                      color: Colors.white,
                                       fontFamily: 'Helvetica',
                                     ),
                                   ),
@@ -179,6 +189,7 @@ class _State extends State<CountUpTimerPage> {
                                     value.toString(),
                                     style: const TextStyle(
                                       fontSize: 30,
+                                      color: Colors.white,
                                       fontFamily: 'Helvetica',
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -224,6 +235,7 @@ class _State extends State<CountUpTimerPage> {
                                     '${index + 1} ${data.displayTime}',
                                     style: const TextStyle(
                                         fontSize: 17,
+                                        color: Colors.white,
                                         fontFamily: 'Helvetica',
                                         fontWeight: FontWeight.bold),
                                   ),
